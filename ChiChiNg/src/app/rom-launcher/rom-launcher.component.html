@@ -1,0 +1,10 @@
+<table>
+  <tr class='header'>
+      <td>Name</td>
+      <td>Mapper</td>
+  </tr>
+  <tr *ngFor = 'let rom of roms'>
+      <td> <a href=[rom.url]>{{ rom.name }}</a></td>
+  </tr>
+
+</table>

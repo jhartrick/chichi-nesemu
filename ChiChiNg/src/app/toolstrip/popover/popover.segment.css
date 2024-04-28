@@ -1,0 +1,7 @@
+div.segment {
+    float:left;
+    top: 0px;
+    left: 0px;
+    width: max-content;
+    height: max-content;
+}

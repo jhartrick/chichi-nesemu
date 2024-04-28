@@ -1,0 +1,44 @@
+.chichi {
+position: absolute;
+height:100%;
+width:100%;
+  background: radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px, radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px, radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color: #282828;
+  background-size: 16px 16px;
+}
+
+.menu {
+    position:absolute;
+    top:0%;
+}
+
+chichi-toolstrip {
+  position: absolute;
+  height: 100%;
+}
+chich-popover {
+  display: inline-block;
+  background-color: red;
+}
+.nesDisplay {
+  position:absolute;
+  width:100%;
+  height:100%;
+  margin: 0px 0px 0px 0px;
+  overflow:hidden;
+}
+
+.chichiPig {
+  position: absolute;
+  float: left;
+  display: block;
+  height: 100%;
+  width: 75%;
+  left: 12.5%;
+}
+
+canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,19 @@
+.flexcontainer {
+    position:absolute;
+    height: 100%; 
+    display:flex; 
+    flex-direction:column; 
+    flex-grow: bottom;
+    justify-content:flex-start;
+  }
+
+  .content {
+    background: white;
+    filter:url('#goo');
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+  }
+

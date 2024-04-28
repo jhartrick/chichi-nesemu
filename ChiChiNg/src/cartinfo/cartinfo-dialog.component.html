@@ -1,0 +1,151 @@
+    <mat-tab-group>
+        <mat-tab label="File Information">
+            <p>Filename: {{ romInfo.fileName }}</p>
+            <!--<chichi-status [emuState]="nesService.emuState"></chichi-status>-->
+            <p>Mapper: {{ romInfo.mapperName }} ({{ romInfo.mapperId }}<span *ngIf='romInfo.submapperId'>, {{ romInfo.submapperId }}</span>)</p>
+            <p>CRC: {{ romInfo.ROMHashFunction }} </p>
+            <p>Prg Roms: {{ romInfo.prgRomCount }}</p>
+            <p>Chr Roms: {{ romInfo.chrRomCount }}</p>
+            
+        </mat-tab>
+        <mat-tab *ngIf="game" label="Game Info">
+            <table >
+                <tr class='header'>
+                    <td>Class</td>
+                    <td>Subclass</td>
+                    <td>Catalog</td>
+                    <td>Publisher</td>
+                    <td>Developer</td>
+                    <td>Region</td>
+                    <td>Players</td>
+                    <td>Date</td>            
+                </tr>
+                <tr *ngFor="let g of game; let i = index">
+                    <td>{{ g.attributes?.class }} </td>
+                    <td>{{ g.attributes?.subclass }} </td>
+                    <td>{{ g.attributes?.catalog }} </td>
+                    <td>{{ g.attributes?.publisher }} </td>
+                    <td>{{ g.attributes?.developer }} </td>
+                    <td>{{ g.attributes?.region }} </td>
+                    <td>{{ g.attributes?.players }} </td>
+                    <td>{{ g.attributes?.date }} </td>
+                </tr>
+            </table>
+        </mat-tab>
+        <mat-tab *ngIf="board" label="Board">
+            <table *ngFor = 'let b of board'>
+                <tr class='header'>
+                    <td>BRD</td>
+                    <td>Type</td>
+                    <td>Pcb</td>
+                    <td>Mapper</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>{{ b.attributes?.type }}</td>
+                    <td>{{ b.attributes?.pcb }}</td>
+                    <td>{{ b.attributes?.mapper }}</td>
+                    <td></td>
+                </tr>
+                <tr class='header'>
+                    <td>ROM</td>
+                    <td></td>
+                    <td>Name</td>
+                    <td>Size</td>
+                    <td>CRC</td>
+                </tr>
+                <tr *ngFor='let r of b.prg'>
+                    <td></td>
+                    <td>prg</td>
+                    <td>{{ r.attributes?.name }}</td>
+                    <td>{{ r.attributes?.size }}</td>
+                    <td>{{ r.attributes?.crc }}</td>
+                </tr>
+                <tr *ngFor='let r of b.chr'>
+                    <td></td>
+                    <td>chr</td>
+                    <td>{{ r.attributes?.name }}</td>
+                    <td>{{ r.attributes?.size }}</td>
+                    <td>{{ r.attributes?.crc }}</td>
+                </tr>
+                <tr class='header' *ngIf='b.vram || b.wram'>
+                    <td>RAM</td>
+                    <td></td>
+                    <td>Battery</td>
+                    <td>Size</td>
+                    <td></td>
+                </tr>                
+                <tr *ngFor='let r of b.vram'>
+                    <td></td>
+                    <td>vram</td>
+                    <td></td>
+                    <td>{{ r.attributes?.size }}</td>
+                    <td></td>
+                </tr>
+                <tr *ngFor='let r of b.wram'>
+                    <td></td>
+                    <td>wram</td>
+                    <td>{{ r.attributes?.battery }}</td>
+                    <td>{{ r.attributes?.size }}</td>
+                    <td></td>
+                </tr>
+                <tr *ngIf='b.pad' class='header'>
+                    <td>PAD</td>
+                    <td></td>
+                    <td>Vert</td>
+                    <td>Horiz</td>
+                    <td></td>
+                </tr>                
+                <tr *ngFor='let r of b.pad'>
+                    <td></td>
+                    <td></td>
+                    <td>{{ r.attributes?.v }}</td>
+                    <td>{{ r.attributes?.h }}</td>
+                    <td></td>
+                </tr>                
+                <tr *ngIf='b.chip' class='header'>
+                    <td>CHIPS</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>                
+                <tr *ngFor='let r of b.chip'>
+                    <td></td>
+                    <td>{{ r.attributes?.type }}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr *ngIf='b.cic' class='header'>
+                        <td>CIC</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>      
+                <tr *ngFor='let r of b.cic'>
+                    <td></td>
+                    <td>{{ r.attributes?.type }}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>   
+                <tr class='header'>
+                    <td>DUMP</td>
+                    <td></td>
+                    <td>System</td>
+                    <td>By</td>
+                    <td>On</td>
+                </tr>
+                <tr *ngIf='cartridge'>
+                        <td></td>
+                        <td></td>
+                    <td>{{ cartridge.attributes?.system }}</td>
+                    <td>{{ cartridge.attributes?.dumper }}</td>
+                    <td>{{ cartridge.attributes?.dumpeddate }}</td>
+                </tr>
+            </table>
+        </mat-tab>
+    </mat-tab-group>

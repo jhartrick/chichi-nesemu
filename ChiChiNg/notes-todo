@@ -1,0 +1,11 @@
+- fix info/cheat and move to angular web components, optional loads
+  - base app pure html only
+
+- snap canvas size to integer multiples of 256w ?
+
+- fix toolbar widget
+
+fix audio for web
+
+make a terminal version (tct, kitty)
+

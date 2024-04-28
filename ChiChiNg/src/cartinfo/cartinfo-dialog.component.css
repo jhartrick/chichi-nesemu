@@ -1,0 +1,20 @@
+table {
+    font-size: 0.75em;
+    width:100%;
+}
+
+td {
+    padding: 5px !important;
+}
+
+tr:nth-child(even) {
+    background: #ddd;
+}
+
+tr:nth-child(odd) {
+    background: #fff;
+}
+
+tr.header {
+    background: #e7c976;
+}

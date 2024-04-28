@@ -1,0 +1,22 @@
+{
+  "name": "nesxmlparser",
+  "version": "1.0.0",
+  "description": "parses nes xml files into individual cart files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.11.0",
+    "fs": "0.0.1-security",
+    "typescript": "^2.6.1",
+    "xml2js": "^0.4.19",
+    "xmldom": "^0.1.27",
+    "xpath": "0.0.24"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.51"
+  }
+}

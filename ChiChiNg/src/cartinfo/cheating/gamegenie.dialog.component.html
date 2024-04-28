@@ -1,0 +1,6 @@
+﻿<div>
+    <ol>
+        <li *ngFor="let cheat of cheats"><mat-button-toggle [checked]="cheat.active" (change)="cheat.active = !cheat.active" > {{ cheat.code }}: {{ cheat.description }} </mat-button-toggle></li>    
+    </ol>
+</div>
+<button (click)="apply()" mat-button>Apply Codes</button>
