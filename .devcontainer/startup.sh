@@ -1,3 +1,3 @@
 #!/bin/sh
 # find my local ssh server
-echo "192.168.88.11     oldboi.local" >> /etc/hosts
+sudo /bin/bash -c 'echo "192.168.88.11  oldboi.local" >> /etc/hosts'
