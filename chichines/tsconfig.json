@@ -1,0 +1,32 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        //"outDir": "../../dist/chichi",
+        //"outFile": "../dist/chichi.js",
+        "sourceMap": true,
+        "declaration": true,
+        "declarationDir": "package/lib/",
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "es2016",
+        "noImplicitAny": true,
+        "typeRoots": [
+            "node_modules/@types",
+            "types"
+        ],
+        "lib": [
+            "dom",
+            "es2017"
+        ]
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "**/*.spec.ts"
+    ]
+}

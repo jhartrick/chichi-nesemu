@@ -1,6 +1,5 @@
 const path = require('path');
 const webpackRxjsExternals = require('webpack-rxjs-externals');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const configChiChi = {
     entry: {
@@ -17,12 +16,11 @@ const configChiChi = {
         extensions: [ '.webpack.js', '.web.js', '.ts', '.js']
     },
     module: {
-        loaders: [
-            { test: /\.ts$/, loader: 'ts-loader' }
+        rules: [
+            { test: /\.ts$/, loader: 'ts-loader', exclude: /node_modules/ }
         ]
     },
     plugins: [
-        new UglifyJsPlugin()
     ]
 }
 

@@ -5,14 +5,13 @@
     //"outFile": "../dist/chichi.js",
     "sourceMap": true,
     "declaration": true,
-    "declarationDir": "../lib/chichi",
+    
     "moduleResolution": "node",
     "module": "commonjs",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es2016",
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
     "typeRoots": [
       "node_modules/@types",
       "types"
