@@ -95,7 +95,7 @@ export const decodeFile = (buffer: ArrayBuffer): NesFile => {
         batterySRAM: (mapperBytes[0] & 2) === 2,
         mirroring,
         fourScreen: (mapperBytes[0] & 8) === 8,
-        romCRC: crc.crc32(new Buffer(rom)).toString(16).toUpperCase()
+        romCRC: crc.crc32(rom).toString(16).toUpperCase()
 
     }
 }

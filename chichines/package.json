@@ -1,6 +1,6 @@
 {
   "name": "chichi",
-  "version": "0.0.44",
+  "version": "0.0.45",
   "license": "MIT",
   "scripts": {
     "test": "./node_modules/.bin/mocha -r ts-node/register src/**/*.spec.ts",
@@ -9,9 +9,10 @@
   },
   "private": true,
   "main": "package/chichi.js",
-  "types": "package/src/lib/chichi/chichi/chichi.d.ts",
+  "types": "package/lib/chichi/chichi.d.ts",
   "dependencies": {
     "@types/crc": "^3.4.0",
+    "chichi": "^0.0.2",
     "crc": "^3.5.0",
     "rxjs": "^5.5.3",
     "webpack-rxjs-externals": "^2.0.0"
