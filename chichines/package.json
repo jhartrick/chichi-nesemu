@@ -1,7 +1,7 @@
 {
   "name": "chichi",
   "version": "0.0.45",
-  "license": "MIT",
+  "license": "NOBODY CAN HAVE IT BUT ME",
   "scripts": {
     "test": "./node_modules/.bin/mocha -r ts-node/register src/**/*.spec.ts",
     "start": "webpack-dev-server --open --config webpack.config.js",

@@ -1,8 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { PopoverContent } from './popover/popover.content';
+import { PopoverComponent } from './popover/popover.component';
 
 @Component({
     selector: 'chichi-toolstrip',
+    standalone: true,
+    imports: [
+PopoverComponent   ],
     templateUrl: 'toolstrip.component.html',
     styleUrls: ['toolstrip.component.css']
 })

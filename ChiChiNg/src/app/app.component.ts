@@ -18,16 +18,17 @@ import { WishboneRuntime, createWishboneRuntime } from '../chichi/wishbone/runti
 
 import { ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/internal/operators/filter';
-import { ToolStripModule } from './toolstrip/toolstrip.module';
 import { CommonModule } from '@angular/common';
 import { WishboneAudio } from '../chichi/wishbone/audio';
+import { ToolStripComponent } from './toolstrip/toolstrip.component';
+import { PopoverComponent } from './toolstrip/popover/popover.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [CommonModule, ToolStripModule],
+  imports: [CommonModule, ToolStripComponent, PopoverComponent],
   // tslint:disable-next-line:use-host-property-decorator
   host: {
     '(document:keydown)': 'onkeydown($event)',

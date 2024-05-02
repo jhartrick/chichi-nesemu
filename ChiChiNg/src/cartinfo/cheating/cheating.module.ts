@@ -6,12 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { GameGenieDialogComponent } from './gamegenie.dialog.component';
-import { WishboneCheats } from './wishbone.cheats';
-
 @NgModule({
   declarations: [
-    GameGenieDialogComponent
   ],
   imports: [
       MatDialogModule,
@@ -22,7 +18,6 @@ import { WishboneCheats } from './wishbone.cheats';
   ],
   providers: [],
   exports: [
-    GameGenieDialogComponent
   ]
 })
 export class CheatingModule { }

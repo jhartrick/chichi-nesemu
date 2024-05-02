@@ -1,7 +1,6 @@
 import { ChiChiAPU, WavSharer, AudioSettings } from 'chichi';
 import * as THREE from 'three';
 
-import { RunningStatuses, StateBuffer } from 'chichi';
 import { LocalAudioSettings } from './audio.localsettings';
 
 export interface ThreeJSAudioSettings extends LocalAudioSettings {

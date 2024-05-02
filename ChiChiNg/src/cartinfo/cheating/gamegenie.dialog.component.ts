@@ -3,9 +3,12 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Wishbone } from '../../chichi/wishbone/wishbone';
 import { GameGenieCode } from 'chichi';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'cheating-gamegeniedialog',
+  standalone: true,
+  imports: [CommonModule, MatButtonToggleModule],
   templateUrl: './gamegenie.dialog.component.html',
   styleUrls: ['./gamegenie.dialog.component.css']
 })

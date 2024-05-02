@@ -2,23 +2,19 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconRegistry } from '@angular/material/icon';
-import { ToolStripModule } from './toolstrip/toolstrip.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { CartInfoModule } from '../cartinfo/cartinfo.module';
 import { DialogService } from './dialog.service';
-import { CheatingModule } from '../cartinfo/cheating/cheating.module';
 import { RomLauncherComponent } from './rom-launcher/rom-launcher.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     RomLauncherComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     MatButtonModule,
-    ToolStripModule,
     HttpClientModule,
-    CartInfoModule,
-    CheatingModule,
   ],
   providers: [MatIconRegistry, HttpClient, DialogService],
 })

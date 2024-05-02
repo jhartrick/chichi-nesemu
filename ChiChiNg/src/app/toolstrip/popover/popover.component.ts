@@ -7,9 +7,12 @@ import {
     keyframes
   } from '@angular/animations';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
     selector: 'chichi-popover',
+    standalone: true,
+    imports: [MatIconModule],
     templateUrl: './popover.component.html',
     styleUrls: ['./popover.component.css'],
     animations: [

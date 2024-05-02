@@ -1,11 +1,23 @@
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog'
 import { Component, Inject, ChangeDetectorRef, ElementRef, AfterContentInit } from '@angular/core';
 import { BaseCart } from 'chichi';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
-  selector: 'cartinfo-dialog',
-  templateUrl: './cartinfo-dialog.component.html',
-  styleUrls: ['./cartinfo-dialog.component.css']
+    selector: 'cartinfo-dialog',
+    standalone: true,
+    imports: [MatDialogModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatTabsModule,
+        MatExpansionModule,
+        MatIconModule],
+    templateUrl: './cartinfo-dialog.component.html',
+    styleUrls: ['./cartinfo-dialog.component.css']
 })
 export class CartInfoDialogComponent implements AfterContentInit {
 
@@ -35,9 +47,9 @@ export class CartInfoDialogComponent implements AfterContentInit {
     }
 
     ngAfterContentInit(): void {
-        setTimeout(()=> {
+        setTimeout(() => {
             this.cd.detectChanges();
-        },0);
+        }, 0);
     }
 
     apply() {

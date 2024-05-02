@@ -150,7 +150,7 @@ export class ChiChiCPPU {
             this.advanceClock(7);
             this.setFlag(SRMasks_InterruptDisableMask, true);
             
-            const newStatusReg1 = this.statusRegister & ~0x10 | 0x20;
+            // const newStatusReg1 = this.statusRegister & ~0x10 | 0x20;
 
             this.pushStack(this.programCounter >> 8);
             this.pushStack(this.programCounter);
