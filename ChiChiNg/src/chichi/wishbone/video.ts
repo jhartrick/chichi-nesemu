@@ -4,14 +4,14 @@ import { PixelBuffers } from "chichi";
 import { drawFrameWebGL } from '../threejs/threejs.drawframe';
 import * as THREE from "three";
 
-export interface VideoHandlingComponent {
+export interface VideoHandlingComponent extends THREE.WebGLRendererParameters {
     canvas: HTMLCanvasElement;
 }
 
-const setupVideoThreeJS = (opts: VideoHandlingComponent) => (wishbone: Wishbone) => {
+export const setupVideoThreeJS = (opts: VideoHandlingComponent) => (wishbone: Wishbone) => {
     // higher order function sets up rendering
     const renderer = new THREE.WebGLRenderer(opts);
-    renderer.setPixelRatio(Math.floor(window.devicePixelRatio));
+    renderer.setSize(256,256,false);
   
     // create function to render nes video
     const chichiDrawer = drawFrameWebGL(renderer);
@@ -20,13 +20,13 @@ const setupVideoThreeJS = (opts: VideoHandlingComponent) => (wishbone: Wishbone)
     return (io: WishboneIO) => {
       wishbone.setPixelBuffer(PixelBuffers.createRawPixelBuffer((new ArrayBuffer(256 * 256 * 4))));            
   
-      const result = Object.assign({}, io);
+      const result = {...io};
       result.drawFrame = chichiDrawer(wishbone);
-      return Object.freeze(result);
+      return result;
     }
 };
 
-const setupVideoCanvas = (opts: VideoHandlingComponent) => (wishbone?: Wishbone) => {
+export const setupVideoCanvas = (opts: VideoHandlingComponent) => (wishbone?: Wishbone) => {
     // higher order function sets up rendering
     const ctx = opts.canvas.getContext('2d');
     const chichiDrawer = drawFrameCanvas(ctx);
@@ -39,8 +39,3 @@ const setupVideoCanvas = (opts: VideoHandlingComponent) => (wishbone?: Wishbone)
         return Object.freeze(result);
     }
 };
-
-export const WishboneVideo = {
-    setupVideoCanvas,
-    setupVideoThreeJS
-}

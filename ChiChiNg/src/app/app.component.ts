@@ -9,7 +9,7 @@ import { DialogService } from './dialog.service';
 import { createWishboneFactory, Wishbone, WishboneIO } from '../chichi/wishbone/wishbone';
 
 
-import { WishboneVideo } from '../chichi/wishbone/video';
+import { setupVideoThreeJS } from '../chichi/wishbone/video';
 //import { WishboneAudioFactory } from '../chichi/wishbone/audio';
 import { WishboneControlPads } from '../chichi/wishbone/controlpads';
 
@@ -66,7 +66,7 @@ export class AppComponent implements AfterViewInit {
     this.setupIO = updateIO([
       WishboneControlPads.setupKeyboards(this),
       WishboneAudio.setupAudioThreeJS(),
-      WishboneVideo.setupVideoThreeJS({ canvas: this.chichiCanvas.nativeElement })
+      setupVideoThreeJS({ canvas: this.chichiCanvas.nativeElement })
     ])(undefined);
 
     this.route.queryParams.pipe(filter(param => param.url)).subscribe(p => {

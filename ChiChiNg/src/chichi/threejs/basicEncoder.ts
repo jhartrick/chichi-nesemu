@@ -25,17 +25,19 @@ export const basicEncoder = () => {
         }
     `;
 
+    const pal =  new Uint8Array(256 * 4);
+    for (let i = 0; i < 256; i++) {
+        const color = defaultPalette[i & 0x3f];
+        pal[i * 4] = color & 0xFF;
+        pal[(i * 4) + 1] = (color >> 8) & 0xFF;
+        pal[(i * 4) + 2] = (color >> 16) & 0xFF;
+        pal[(i * 4) + 3] =  0xFF;
+    }
+    const paltext = new THREE.DataTexture(pal, 256, 1, THREE.RGBAFormat);
+    
     return (vbuffer: Uint8Array) => {
         const text = new THREE.DataTexture(vbuffer, 256, 256, THREE.RGBAFormat);
-        const pal =  new Uint8Array(256 * 4);
-        for (let i = 0; i < 256; i++) {
-            const color = defaultPalette[i & 0x3f];
-            pal[i * 4] = color & 0xFF;
-            pal[(i * 4) + 1] = (color >> 8) & 0xFF;
-            pal[(i * 4) + 2] = (color >> 16) & 0xFF;
-            pal[(i * 4) + 3] =  0xFF;
-        }
-        const paltext = new THREE.DataTexture(pal, 256, 1, THREE.RGBAFormat);
+        
         const material = new THREE.ShaderMaterial({
             uniforms: {
                 myTexture: { value: text },

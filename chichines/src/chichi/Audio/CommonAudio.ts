@@ -5,6 +5,7 @@ const WAVSHARER_BLOCKTHREAD = 1;
 const WAVSHARER_BUFFERPOS = 2;
 
 const time_unit = 2097152;
+//const time_unit = 2097152;
 const buf_extra = 18;
 const phase_count = 32;
 const time_bits = 21;
