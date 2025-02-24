@@ -6,12 +6,14 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'cartinfo-dialog',
     standalone: true,
-    imports: [MatDialogModule,
-        BrowserAnimationsModule,
+    imports: [
+        CommonModule,
+        MatDialogModule,
         MatButtonModule,
         MatTabsModule,
         MatExpansionModule,

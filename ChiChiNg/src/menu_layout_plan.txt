@@ -1,0 +1,6 @@
++ Load Rom
++ Debug (show when runing)
+
+    - open in new window
+    - show cpu stats and local dissassembly
+    - sprite/tile viewer

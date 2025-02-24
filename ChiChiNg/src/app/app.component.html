@@ -14,6 +14,8 @@
             <chichi-popover [icon]='paused ? "play" : "pause" ' (buttonClick)="paused = !paused; pause(paused);"></chichi-popover>
             <chichi-popover icon='chip' (buttonClick)='dialogService.showCartInfo(cart)' ></chichi-popover>
             <chichi-popover icon='baby-buggy'  (buttonClick)='dialogService.showCheats(cart, wishbone)'></chichi-popover>
+            
+            <chichi-popover icon='baby-buggy'  (buttonClick)='dialogService.showDebug(cart, wishbone)'></chichi-popover>
         </div>
     </chichi-toolstrip>
 
