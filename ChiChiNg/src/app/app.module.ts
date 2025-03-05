@@ -2,22 +2,15 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconRegistry } from '@angular/material/icon';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DialogService } from './dialog.service';
 import { RomLauncherComponent } from './rom-launcher/rom-launcher.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-@NgModule({
-  declarations: [
-    RomLauncherComponent,
-  ],
-  imports: [
-    BrowserAnimationsModule,
-    MatButtonModule,
-    HttpClientModule,
-  ],
-  providers: [MatIconRegistry, HttpClient, DialogService],
-})
+@NgModule({ declarations: [
+        RomLauncherComponent,
+    ], imports: [BrowserAnimationsModule,
+        MatButtonModule], providers: [MatIconRegistry, HttpClient, DialogService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {
   constructor(public matIconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
 
