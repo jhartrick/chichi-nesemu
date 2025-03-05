@@ -3,7 +3,7 @@ import { BaseCart } from 'chichines';
 import { CartInfoDialogComponent } from "../cartinfo/cartinfo-dialog.component";
 import { MatDialog } from "@angular/material/dialog";
 import { Injectable } from "@angular/core";
-import { Wishbone } from "../chichi/wishbone/wishbone";
+import { attachDebugCallback, Wishbone } from "../chichi/wishbone/wishbone";
 import { WishboneCheats } from "../cartinfo/cheating/wishbone.cheats";
 import { GameGenieDialogComponent } from "../cartinfo/cheating/gamegenie.dialog.component";
 
@@ -12,6 +12,8 @@ export type MachineInformation = { machine: Wishbone };
 
 @Injectable()
 export class DialogService {
+    public CPUStatus: { accumulator: number; indexRegisterX: number; indexRegisterY: number; InstructionHistory: any[]; };
+    
     constructor(private dialog: MatDialog) {
     }
 
@@ -52,6 +54,14 @@ export class DialogService {
     }
 
     showDebug(cart:BaseCart, wishbone: Wishbone) {
-        
+        attachDebugCallback(wishbone, () => {
+            this.snapshot(wishbone);
+        })
     }
+
+    private snapshot(wishbone: Wishbone) {
+        const { accumulator, indexRegisterX, indexRegisterY, InstructionHistory } = wishbone.chichi.Cpu;
+        this.CPUStatus = { accumulator, indexRegisterX, indexRegisterY, InstructionHistory };
+    }
+
 }

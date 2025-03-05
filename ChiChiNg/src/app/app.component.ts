@@ -22,13 +22,14 @@ import { CommonModule } from '@angular/common';
 import { WishboneAudio } from '../chichi/wishbone/audio';
 import { ToolStripComponent } from './toolstrip/toolstrip.component';
 import { PopoverComponent } from './toolstrip/popover/popover.component';
+import { MachineInfoComponent } from '../machine_info/machine-info.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [CommonModule, ToolStripComponent, PopoverComponent],
+  imports: [CommonModule, ToolStripComponent, PopoverComponent, MachineInfoComponent],
   // tslint:disable-next-line:use-host-property-decorator
   host: {
     '(document:keydown)': 'onkeydown($event)',

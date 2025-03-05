@@ -1,8 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectorRef, Component, ElementRef, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { MachineInformation } from "../app/dialog.service";
-import { ChiChiCPPU } from "chichines";
+import { DialogService, MachineInformation } from "../app/dialog.service";
 
 @Component({
   selector: 'machine-info',
@@ -12,15 +11,11 @@ import { ChiChiCPPU } from "chichines";
   styleUrls: ['./machine-info.component.css']
 })
 export class MachineInfoComponent {
-   machine: ChiChiCPPU;
    constructor(
-        public dialogRef: MatDialogRef<MachineInfoComponent, MachineInformation>,
-        @Inject(MAT_DIALOG_DATA) public data: MachineInformation,
-        private cd: ChangeDetectorRef,
-        private elementRef: ElementRef
+        public dialogService: DialogService,
+        public cd: ChangeDetectorRef
     ) {
-        const { accumulator, indexRegisterX, indexRegisterY, InstructionHistory } = data.machine.chichi.Cpu;
-        
-        
-    }
+
+  }
+
 }

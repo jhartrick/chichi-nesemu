@@ -7,7 +7,7 @@ const loadFile = (filedata: File) => {
     const reader: FileReader = new FileReader();
     const promise = new Promise<BaseCart>((resolve, reject) => {
         reader.onload = (ze) => {
-            const ab = reader.result;
+            const ab = reader.result as ArrayBuffer;
             resolve(iNESFileHandler(ab));
         };
     });

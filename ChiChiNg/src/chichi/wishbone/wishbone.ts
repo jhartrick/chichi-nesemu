@@ -30,6 +30,7 @@ export interface Wishbone {
     reset: () => void;
 
     runframe: () => void;
+    step: () => void;
 
     // TODO: implement this better
     getPixelBuffer: () => PixelBuffer;
@@ -54,12 +55,31 @@ const createWishbone = (): Wishbone => {
         poweron:  chichi.PowerOn.bind(chichi),
         poweroff:  chichi.PowerOff.bind(chichi),
         reset:  chichi.Reset.bind(chichi),
+        step:  chichi.Step.bind(chichi),
         runframe:  chichi.RunFrame.bind(chichi),
         state: {
             pull: null,
             push: null,
         }
     };
+}
+
+export const attachDebugCallback = (wb: Wishbone, cb: () => void): Wishbone => {
+    const chichi = wb.chichi;
+    
+    wb.runframe = () => {
+        chichi.RunFrame.bind(chichi);
+        cb();
+    }
+    return wb;
+}
+
+
+export const removeDebugCallback = (wb: Wishbone): Wishbone => {
+    const chichi = wb.chichi;
+    
+    wb.runframe = () => chichi.RunFrame.bind(chichi);
+    return wb;
 }
 
 export const createWishboneFactory = () => {

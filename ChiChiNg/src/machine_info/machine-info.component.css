@@ -1,18 +1,12 @@
-﻿li {
-    list-style: none;
-}
-
-.scrollbox {
-    height: calc(100% - 48px);
-    width: 100%;
-    top:0;
-    overflow-y: scroll;
-    overflow-x:hidden;
-    position: absolute;
-}
-
-.toolbar {
-    position: absolute;
+﻿:host {
+    border-top: 1px solid rebeccapurple;
     height: 32px;
+    width: 100%;
     bottom: 0;
+    position: absolute;
+
+}
+
+.cpu-status {
+    color:white;
 }
