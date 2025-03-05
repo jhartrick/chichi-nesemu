@@ -1,7 +1,6 @@
 {
-  "name": "chichi",
-  "version": "0.0.45",
-  "license": "NOBODY CAN HAVE IT BUT ME",
+  "name": "chichines",
+  "version": "0.0.49",
   "scripts": {
     "test": "./node_modules/.bin/mocha -r ts-node/register src/**/*.spec.ts",
     "start": "webpack-dev-server --open --config webpack.config.js",
@@ -9,7 +8,7 @@
   },
   "private": true,
   "main": "package/chichi.js",
-  "types": "package/lib/chichi/chichi.d.ts",
+  "types": "package/types/chichi/chichi.d.ts",
   "dependencies": {
     "@types/crc": "^3.4.0",
     "chichi": "^0.0.2",
@@ -19,15 +18,15 @@
     "webpack-rxjs-externals": "^2.0.0"
   },
   "files": [
-    "package/chichi.js",
-    "package/lib/*"
+    "dist/chichi",
+    "package/types"
   ],
   "devDependencies": {
     "@types/chai": "^4.1.2",
     "@types/mocha": "^2.2.48",
     "chai": "^4.1.2",
     "mocha": "^5.0.4",
-    "ts-loader": "^9.5.1",
+    "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
     "webpack": "^5.91.0",

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GameGenieCode, ChiChiCheats, BaseCart, ChiChiCPPU } from 'chichi';
+import { GameGenieCode, ChiChiCheats, BaseCart, ChiChiCPPU } from 'chichines';
 import { Wishbone } from '../../chichi/wishbone/wishbone';
 
 

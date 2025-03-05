@@ -1,6 +1,6 @@
-import { ChiChiMachine, BaseCart, WavSharer, ChiChiControlPad, PixelBuffer, ChiChiPPU, StateBuffer } from 'chichi';
+import { ChiChiMachine, BaseCart, WavSharer, ChiChiControlPad, PixelBuffer, ChiChiPPU, StateBuffer } from 'chichines';
 import { WishBoneControlPad } from './keyboard/wishbone.controlpad';
-import { ChiChiCPPU } from 'chichi';
+import { ChiChiCPPU } from 'chichines';
 import { WishboneRuntime } from './runtime';
 import { LocalAudioSettings } from '../threejs/audio.localsettings';
 import { WishboneState } from './state';

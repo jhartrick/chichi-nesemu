@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, ViewChild, OnInit, NgZone, AfterVie
 
 import { loadCartFromFile, loadCartFromUrl } from '../chichi/wishbone/filehandler';
 
-import { BaseCart } from 'chichi';
+import { BaseCart } from 'chichines';
 
 import * as THREE from 'three';
 import { DialogService } from './dialog.service';

@@ -12,12 +12,13 @@ const configChiChi = {
         library: 'chichi',
         libraryTarget: 'umd'
     },
+    devtool: 'source-map',
     resolve: {
         extensions: [ '.webpack.js', '.web.js', '.ts', '.js']
     },
     module: {
         rules: [
-            { test: /\.ts$/, loader: 'ts-loader', exclude: /node_modules/ }
+            { test: /\.ts$/, use: 'ts-loader', exclude: /node_modules/ }
         ]
     },
     plugins: [

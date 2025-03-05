@@ -1,4 +1,4 @@
-import { StateBuffer, ChiChiMachine, StateBufferConfig } from 'chichi';
+import { StateBuffer, ChiChiMachine, StateBufferConfig } from 'chichines';
 import { Wishbone } from './wishbone';
 
 export interface WishboneState {

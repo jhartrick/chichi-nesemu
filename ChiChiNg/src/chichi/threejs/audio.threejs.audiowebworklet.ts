@@ -1,4 +1,4 @@
-import { ChiChiAPU, WavSharer, AudioSettings } from 'chichi';
+import { ChiChiAPU, WavSharer, AudioSettings } from 'chichines';
 import * as THREE from 'three';
 
 import { LocalAudioSettings } from './audio.localsettings';

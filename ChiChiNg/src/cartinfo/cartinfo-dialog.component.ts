@@ -1,12 +1,13 @@
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog'
 import { Component, Inject, ChangeDetectorRef, ElementRef, AfterContentInit } from '@angular/core';
-import { BaseCart } from 'chichi';
+import { BaseCart } from 'chichines';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { CartInformation } from '../app/dialog.service';
 
 @Component({
     selector: 'cartinfo-dialog',
@@ -31,7 +32,7 @@ export class CartInfoDialogComponent implements AfterContentInit {
 
     constructor(
         public dialogRef: MatDialogRef<CartInfoDialogComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: any,
+        @Inject(MAT_DIALOG_DATA) public data: CartInformation,
         private cd: ChangeDetectorRef,
         private elementRef: ElementRef
     ) {

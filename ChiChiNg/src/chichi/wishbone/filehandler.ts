@@ -1,5 +1,5 @@
 
-import { BaseCart, iNESFileHandler } from 'chichi';
+import { BaseCart, iNESFileHandler } from 'chichines';
 import * as JSZip from 'jszip';
 import * as crc from 'crc';
 

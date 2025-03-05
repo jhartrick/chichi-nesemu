@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NESFileDecoder } from 'chichi';
+import { NESFileDecoder } from 'chichines';
 
 export interface RomUrl {
   url: string;

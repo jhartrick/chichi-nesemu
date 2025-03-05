@@ -1,7 +1,7 @@
 import { Component, Inject, HostListener, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Wishbone } from '../../chichi/wishbone/wishbone';
-import { GameGenieCode } from 'chichi';
+import { GameGenieCode } from 'chichines';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';

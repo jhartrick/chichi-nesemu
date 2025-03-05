@@ -46,3 +46,7 @@ Thumbs.db
 *.nes
 /package/*
 chichi-*.tgz
+/src/chichi/**/*.d.ts
+/src/chichicarts/**/*.d.ts
+/src/chichi/**/*.js*
+/src/chichicarts/**/*.js*
