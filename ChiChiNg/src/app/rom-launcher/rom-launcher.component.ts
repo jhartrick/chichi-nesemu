@@ -7,9 +7,10 @@ export interface RomUrl {
 }
 
 @Component({
-  selector: 'app-rom-launcher',
-  templateUrl: './rom-launcher.component.html',
-  styleUrls: ['./rom-launcher.component.css']
+    selector: 'app-rom-launcher',
+    templateUrl: './rom-launcher.component.html',
+    styleUrls: ['./rom-launcher.component.css'],
+    standalone: false
 })
 export class RomLauncherComponent implements OnInit {
 

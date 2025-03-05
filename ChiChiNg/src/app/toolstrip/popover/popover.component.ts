@@ -11,28 +11,26 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
     selector: 'chichi-popover',
-    standalone: true,
     imports: [MatIconModule],
     templateUrl: './popover.component.html',
     styleUrls: ['./popover.component.css'],
     animations: [
         trigger('hoverAnimation', [
-        state('*',   style({
-            transform: 'translateX(-32px)'
-        })),
-        state('hover',   style({
-            transform: 'translateX(0%) scale(1.4)',
-            color: 'yellow'
-        })),
-          transition('* => hover', animate('400ms 200ms ease-in', keyframes ([
-            style({ transform: 'translateX(-32px)', offset: 0 }),
-            style({ transform: 'translateX(12px)', offset: 0.5 }),
-            style([{ transform: 'translateX(0%) scale(1.3)', offset: 1.0 }, { color: 'yellow', offset: 0.9 }])
-            ])
-          )),
-          transition('hover => *', animate('500ms 100ms ease-out'))
+            state('*', style({
+                transform: 'translateX(-32px)'
+            })),
+            state('hover', style({
+                transform: 'translateX(0%) scale(1.4)',
+                color: 'yellow'
+            })),
+            transition('* => hover', animate('400ms 200ms ease-in', keyframes([
+                style({ transform: 'translateX(-32px)', offset: 0 }),
+                style({ transform: 'translateX(12px)', offset: 0.5 }),
+                style([{ transform: 'translateX(0%) scale(1.3)', offset: 1.0 }, { color: 'yellow', offset: 0.9 }])
+            ]))),
+            transition('hover => *', animate('500ms 100ms ease-out'))
         ])
-      ]
+    ]
 })
 export class PopoverComponent{
     

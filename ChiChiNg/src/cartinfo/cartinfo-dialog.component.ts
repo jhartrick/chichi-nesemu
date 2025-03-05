@@ -11,14 +11,14 @@ import { CartInformation } from '../app/dialog.service';
 
 @Component({
     selector: 'cartinfo-dialog',
-    standalone: true,
     imports: [
         CommonModule,
         MatDialogModule,
         MatButtonModule,
         MatTabsModule,
         MatExpansionModule,
-        MatIconModule],
+        MatIconModule
+    ],
     templateUrl: './cartinfo-dialog.component.html',
     styleUrls: ['./cartinfo-dialog.component.css']
 })

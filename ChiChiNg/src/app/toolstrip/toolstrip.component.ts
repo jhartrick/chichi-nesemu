@@ -3,9 +3,9 @@ import { PopoverComponent } from './popover/popover.component';
 
 @Component({
     selector: 'chichi-toolstrip',
-    standalone: true,
     imports: [
-PopoverComponent   ],
+        PopoverComponent
+    ],
     templateUrl: 'toolstrip.component.html',
     styleUrls: ['toolstrip.component.css']
 })

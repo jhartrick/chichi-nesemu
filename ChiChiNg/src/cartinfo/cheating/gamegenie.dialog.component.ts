@@ -7,11 +7,10 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'cheating-gamegeniedialog',
-  standalone: true,
-  imports: [CommonModule, MatButtonToggleModule, MatButtonModule],
-  templateUrl: './gamegenie.dialog.component.html',
-  styleUrls: ['./gamegenie.dialog.component.css']
+    selector: 'cheating-gamegeniedialog',
+    imports: [CommonModule, MatButtonToggleModule, MatButtonModule],
+    templateUrl: './gamegenie.dialog.component.html',
+    styleUrls: ['./gamegenie.dialog.component.css']
 })
 export class GameGenieDialogComponent {
     wishbone: Wishbone;

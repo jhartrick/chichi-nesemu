@@ -4,11 +4,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { DialogService, MachineInformation } from "../app/dialog.service";
 
 @Component({
-  selector: 'machine-info',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './machine-info.component.html',
-  styleUrls: ['./machine-info.component.css']
+    selector: 'machine-info',
+    imports: [CommonModule],
+    templateUrl: './machine-info.component.html',
+    styleUrls: ['./machine-info.component.css']
 })
 export class MachineInfoComponent {
    constructor(
