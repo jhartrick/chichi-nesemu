@@ -1,0 +1,5 @@
+﻿<span class="cpu-status" *ngIf="wb.debugging">
+    <button mat-button (click)="step()">Step</button>
+    <button mat-button (click)="stepFrame()">Step Frame</button>
+    Clk: {{ CPUStatus.clock }} PC: {{ CPUStatus.PC }} ACC: {{ CPUStatus.A }} IDX: {{ CPUStatus.X }} IDY: {{ CPUStatus.Y }} Last Instruction: {{ CPUStatus.currentInstruction }}
+</span>

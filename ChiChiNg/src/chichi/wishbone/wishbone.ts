@@ -25,6 +25,8 @@ export interface Wishbone {
     cart?: BaseCart;
     runtime?: WishboneRuntime;
 
+    loadcart: (cart: BaseCart) => void;
+
     poweron: () => void;
     poweroff: () => void;
     reset: () => void;
@@ -38,14 +40,22 @@ export interface Wishbone {
 
     state: WishboneState;
 
+    debugging: boolean;
+
 }
 
-const createWishbone = (): Wishbone => {
+export const createWishbone = (): Wishbone => {
     const chichi: ChiChiMachine = new ChiChiMachine()
     const setPixelBuffer = (ppu: ChiChiPPU) => (buffer: any) => ppu.pixelBuffer = buffer;
     const getPixelBuffer = (ppu: ChiChiPPU) => (): PixelBuffer => ppu.pixelBuffer;
 
     return {
+        loadcart:  (cart: BaseCart) => {
+                if (cart) {
+                    chichi.loadCart(cart);
+                }
+            }
+        ,
         chichi: chichi,
         wavSharer: chichi.SoundBopper.writer,
         getPixelBuffer: getPixelBuffer(chichi.Cpu.ppu),
@@ -60,7 +70,8 @@ const createWishbone = (): Wishbone => {
         state: {
             pull: null,
             push: null,
-        }
+        },
+        debugging: true
     };
 }
 
@@ -80,17 +91,5 @@ export const removeDebugCallback = (wb: Wishbone): Wishbone => {
     
     wb.runframe = () => chichi.RunFrame.bind(chichi);
     return wb;
-}
-
-export const createWishboneFactory = () => {
-    const wishbone = createWishbone();
-
-    return (cart: BaseCart) => {
-        if (cart) {
-            wishbone.chichi.loadCart(cart);
-        }
-        return wishbone;
-    };
-
 }
 

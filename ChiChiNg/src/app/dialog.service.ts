@@ -1,9 +1,8 @@
-import { HttpClient } from "@angular/common/http";
-import { BaseCart } from 'chichines';
+import { BaseCart, GameGenieCode } from 'chichines';
 import { CartInfoDialogComponent } from "../cartinfo/cartinfo-dialog.component";
 import { MatDialog } from "@angular/material/dialog";
 import { Injectable } from "@angular/core";
-import { attachDebugCallback, Wishbone } from "../chichi/wishbone/wishbone";
+import { Wishbone } from "../chichi/wishbone/wishbone";
 import { WishboneCheats } from "../cartinfo/cheating/wishbone.cheats";
 import { GameGenieDialogComponent } from "../cartinfo/cheating/gamegenie.dialog.component";
 
@@ -12,7 +11,6 @@ export type MachineInformation = { machine: Wishbone };
 
 @Injectable()
 export class DialogService {
-    public CPUStatus: { accumulator: number; indexRegisterX: number; indexRegisterY: number; InstructionHistory: any[]; };
     
     constructor(private dialog: MatDialog) {
     }
@@ -38,10 +36,10 @@ export class DialogService {
         })();
     }
 
-    showCheats (cart: BaseCart, wishbone: Wishbone) {
+
+    showCheats (cart: BaseCart, wishbone: Wishbone, cheats: GameGenieCode[]) {
    
         (async () => {
-            const cheats = await  WishboneCheats.fetchCheats(cart.ROMHashFunction);
             const dialogRef = this.dialog.open(GameGenieDialogComponent, {
                 height: '80%',
                 width: '60%',
@@ -53,15 +51,5 @@ export class DialogService {
         })();
     }
 
-    showDebug(cart:BaseCart, wishbone: Wishbone) {
-        attachDebugCallback(wishbone, () => {
-            this.snapshot(wishbone);
-        })
-    }
-
-    private snapshot(wishbone: Wishbone) {
-        const { accumulator, indexRegisterX, indexRegisterY, InstructionHistory } = wishbone.chichi.Cpu;
-        this.CPUStatus = { accumulator, indexRegisterX, indexRegisterY, InstructionHistory };
-    }
 
 }

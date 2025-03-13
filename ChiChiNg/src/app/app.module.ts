@@ -1,16 +1,25 @@
 import { DomSanitizer } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconRegistry } from '@angular/material/icon';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DialogService } from './dialog.service';
 import { RomLauncherComponent } from './rom-launcher/rom-launcher.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Wishbone, createWishbone } from '../chichi/wishbone/wishbone';
 
-@NgModule({ declarations: [
+export const WISHBONE_INST = new InjectionToken<Wishbone>('wishbone.instance');
+const _wishbone: Wishbone = createWishbone();
+@NgModule({ 
+  declarations: [
         RomLauncherComponent,
-    ], imports: [BrowserAnimationsModule,
-        MatButtonModule], providers: [MatIconRegistry, HttpClient, DialogService, provideHttpClient(withInterceptorsFromDi())] })
+    ],
+  imports: [
+    BrowserAnimationsModule,
+    MatButtonModule], 
+    providers: [
+      {provide: WISHBONE_INST, useValue: _wishbone },
+      MatIconRegistry, HttpClient, DialogService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {
   constructor(public matIconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
 
@@ -27,7 +36,10 @@ export class AppModule {
       .addSvgIcon('volume-high', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/volume-high.svg'))
       .addSvgIcon('volume-off', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/volume-off.svg'))
       .addSvgIcon('baby-buggy', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/baby-buggy.svg'))
+      .addSvgIcon('bug', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/bug.svg'))
       .addSvgIcon('amplifier',  sanitizer.bypassSecurityTrustResourceUrl('assets/icons/amplifier.svg'));
+
   }
 
  }
+ 

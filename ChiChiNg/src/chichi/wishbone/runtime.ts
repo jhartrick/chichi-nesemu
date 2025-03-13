@@ -21,7 +21,7 @@ const runFrame = (wishbone: Wishbone) => (io: WishboneIO)  => () => {
 const runInterval =  (runMe: () => void) => (loop: runLoop): runLoop => {
     
     clearInterval(loop.interval);
-    const result = Object.assign({}, loop);
+    const result = {...loop};
 
     result.interval = setInterval(p => {
         if (!loop.paused) { 
@@ -40,7 +40,7 @@ const silence = (wb: Wishbone) => {
 export const createWishboneRuntime = (wishbone: Wishbone) => (io: WishboneIO): WishboneRuntime => {
 
     let paused = false;
-    let frameTime = 1000.0/60;
+    const frameTime = 1000.0/60.0988;
     const runMe = runFrame(wishbone)(io);
 
     const nesLoop = runInterval(runMe);

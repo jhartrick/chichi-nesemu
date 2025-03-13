@@ -4,7 +4,7 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha -r ts-node/register src/**/*.spec.ts",
     "start": "webpack-dev-server --open --config webpack.config.js",
-    "build": "webpack --config webpack.config.js"
+    "build": "tsc --declaration && webpack --config webpack.config.js"
   },
   "private": true,
   "main": "package/chichi.js",

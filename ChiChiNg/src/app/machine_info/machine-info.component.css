@@ -4,7 +4,8 @@
     width: 100%;
     bottom: 0;
     position: absolute;
-
+    overflow: hidden;
+    background-color: rgba(102,51,153,0.6);
 }
 
 .cpu-status {

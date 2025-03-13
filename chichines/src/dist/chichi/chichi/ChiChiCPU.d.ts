@@ -1,4 +1,4 @@
-import { ChiChiCPPU_AddressingModes, ChiChiInstruction } from "./ChiChiTypes";
+import { ChiChiCPPU_AddressingModes, ChiChiInstruction, CpuStatus } from "./ChiChiTypes";
 import { ChiChiPPU } from "./ChiChiPPU";
 import { ChiChiAPU } from "./ChiChiAudio";
 import { BaseCart } from '../chichicarts/BaseCart';
@@ -67,6 +67,9 @@ export declare class ChiChiCPPU {
     setByte(address: number, data: number): void;
     HandleNextEvent(): void;
     ResetInstructionHistory(): void;
+    writeInstructionHistory(): void;
+    FireDebugEvent(s: any): void;
+    GetStatus(): CpuStatus;
     setupStateBuffer: (sb: StateBuffer) => StateBuffer;
 }
 export declare const stateConfig: (cpu: ChiChiCPPU) => (sb: StateBuffer) => {

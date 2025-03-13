@@ -1,13 +1,12 @@
 
-<div class='popover' [@hoverAnimation]='hoverState' style='z-index: 9999; width: 64px; height: 64px' >
-    <!-- <chichi-ui-segment style='z-index: 9999' cssClass='floater' width='64px' left='0px'>
-        <ng-template chichi-popover></ng-template>
-    </chichi-ui-segment> -->
-    <div style='z-index: 9999; width: 128px; margin-left: -64px; height: 64px;' (mouseenter)="hoverState='hover'"  (mouseleave)="hoverState = ''">
-        
-        <button style="margin-left: 64px" (click)="click($event)" class='circlebutton pulse2' >
-            <mat-icon svgIcon='{{ icon }}'></mat-icon>
-        </button>
-    </div>
-    <ng-content></ng-content>
+<div class='popover' [@hoverAnimation]='hoverState' 
+(mouseenter)="hoverState='hover'" (mouseleave)="hoverState=''"
+>
+    <button (click)="click($event)" class='circlebutton pulse2'
+    
+    (focus)="hoverState='hover'"  (focusout)="hoverState = ''">
+        <mat-icon svgIcon='{{ icon }}'></mat-icon><br/>
+        <span class="tooltiptext">{{title}}</span>
+    </button>
+    
 </div>

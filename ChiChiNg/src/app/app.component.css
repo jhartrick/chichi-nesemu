@@ -16,13 +16,15 @@
 
 chichi-toolstrip {
   position: absolute;
-  height: 100%;
+  width: auto;
 }
 
 chich-popover {
   display: inline-block;
   background-color: red;
 }
+
+
 
 .nesDisplay {
   position: absolute;
@@ -59,4 +61,16 @@ canvas {
     width: 100%;
     height: auto;
   }
+}
+
+
+app-side-panel {
+  position: absolute;
+  width: 30%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  border-left: 3px solid aliceblue;
+  background-color: #282828;
+
 }

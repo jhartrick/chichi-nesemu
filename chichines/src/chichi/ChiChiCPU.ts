@@ -70,7 +70,7 @@ export class ChiChiCPPU {
 
     // debug helpers
     private instructionUsage = new Uint32Array(256);//System.Array.init(256, 0, System.Int32);
-    private debugging = false;
+    private debugging = true;
 
     // #region Cheats
     cheating = false;
@@ -212,10 +212,10 @@ export class ChiChiCPPU {
             this.borrowedCycles = 0;
         }
 
-        // if (this.debugging) {
-        //     this.writeInstructionHistory();
-        //     this._operationCounter++;
-        // }
+        if (this.debugging) {
+            this.writeInstructionHistory();
+            this._operationCounter++;
+        }
     }
 
     fetchInstructionParameters(): any {
@@ -961,42 +961,48 @@ export class ChiChiCPPU {
         this.instructionHistoryPointer = 0xFF;
     }
 
-    // writeInstructionHistory(): void {
-    //     const inst: ChiChiInstruction = new ChiChiInstruction();
-    //     inst.time = this.systemClock;
-    //     inst.A = this.accumulator;
-    //     inst.X = this.indexRegisterX;
-    //     inst.Y = this.indexRegisterY;
-    //     inst.SR = this.statusRegister;
-    //     inst.SP = this.stackPointer;
-    //     inst.frame = this.clock;
-    //     inst.OpCode = this._currentInstruction_OpCode;
-    //     inst.Parameters0 = this._currentInstruction_Parameters0;
-    //     inst.Parameters1 = this._currentInstruction_Parameters1;
-    //     inst.Address = this._currentInstruction_Address;
-    //     inst.AddressingMode = this._currentInstruction_AddressingMode;
-    //     inst.ExtraTiming = this._currentInstruction_ExtraTiming;
+    writeInstructionHistory(): void {
+        
+        this._instructionHistory[(this.instructionHistoryPointer--) & 255] = {
+            time: this.systemClock,
+            A :this.accumulator,
+            X : this.indexRegisterX,
+            Y : this.indexRegisterY,
+            SR : this.statusRegister,
+            SP : this.stackPointer,
+            frame: this.clock,
+            OpCode: this._currentInstruction_OpCode,
+            Parameters0: this._currentInstruction_Parameters0,
+            Parameters1: this._currentInstruction_Parameters1,
+            Address: this._currentInstruction_Address,
+            AddressingMode: this._currentInstruction_AddressingMode,
+            ExtraTiming: this._currentInstruction_ExtraTiming,
+            Length: 2
+        };
+        if (this.instructionHistoryPointer < 0) {
+            this.instructionHistoryPointer = 255
+        }
 
-    //     this._instructionHistory[(this.instructionHistoryPointer--) & 255] = inst;
-    //     this.instructionUsage[this._currentInstruction_OpCode]++;
-    //     if ((this.instructionHistoryPointer & 255) === 255) {
-    //         this.FireDebugEvent("instructionHistoryFull");
-    //     }
-    // }
+        // this.instructionUsage[this._currentInstruction_OpCode]++;
+        if ((this.instructionHistoryPointer & 255) === 255) {
+            this.FireDebugEvent("instructionHistoryFull");
+        }
+    }
 
-    // FireDebugEvent(s: any): void {
-    // }
+    FireDebugEvent(s: any): void {
+    }
 
-    // GetStatus(): CpuStatus {
-    //     return {
-    //         PC: this.programCounter,
-    //         A: this.accumulator,
-    //         X: this.indexRegisterX,
-    //         Y: this.indexRegisterY,
-    //         SP: this.stackPointer,
-    //         SR: this.statusRegister
-    //     }
-    // }
+    GetStatus(): CpuStatus {
+        return {
+            PC: this.programCounter,
+            A: this.accumulator,
+            X: this.indexRegisterX,
+            Y: this.indexRegisterY,
+            SP: this.stackPointer,
+            SR: this.statusRegister
+        }
+    }
+    
     setupStateBuffer = (sb: StateBuffer) => setupStateBuffer(this, sb);
 }
 

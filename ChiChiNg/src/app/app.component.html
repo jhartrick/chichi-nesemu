@@ -6,16 +6,20 @@
         </div>
       </div>
 
-      <chichi-toolstrip class='menu' >
+      <chichi-toolstrip class='menu' align="vert" >
         <input #fileInput type=file ng-hide (change)='loadfile($event)' style='display:none' />
-        <chichi-popover icon='upload' (buttonClick)="fileInput.click()"></chichi-popover>
-        <div *ngIf="cart" >
-            <chichi-popover [icon]='muted ? "volume-off" : "volume-high"' (buttonClick)="muted = !muted; mute(muted);"></chichi-popover>
-            <chichi-popover [icon]='paused ? "play" : "pause" ' (buttonClick)="paused = !paused; pause(paused);"></chichi-popover>
-            <chichi-popover icon='chip' (buttonClick)='dialogService.showCartInfo(cart)' ></chichi-popover>
-            <chichi-popover icon='baby-buggy'  (buttonClick)='dialogService.showCheats(cart, wishbone)'></chichi-popover>
-            <chichi-popover icon='baby-buggy'  (buttonClick)='dialogService.showDebug(cart, wishbone)'></chichi-popover>
-        </div>
+        <chichi-popover title="Load" icon='upload' (buttonClick)="fileInput.click()"></chichi-popover>
+        <ng-container *ngIf="cart" >
+            <chichi-popover title="Pause" [icon]='paused ? "play" : "pause" ' (buttonClick)="paused = !paused; pause(paused);"></chichi-popover>
+            <chichi-popover title="Volume" [icon]='muted ? "volume-off" : "volume-high"' (buttonClick)="muted = !muted; mute(muted);"></chichi-popover>
+            <chichi-popover title="Info" icon='chip' (buttonClick)='dialogService.showCartInfo(cart)' ></chichi-popover>
+            <chichi-popover *ngIf="hasCheats" title="Cheat" icon='baby-buggy'  (buttonClick)='showCheats()'></chichi-popover>
+            <!-- <chichi-popover title="{{wishbone.debugging ? 'Debug: ON': 'Debug: OFF' }}" icon='bug' (buttonClick)='toggleDebug()'></chichi-popover> -->
+        </ng-container>
     </chichi-toolstrip>
-    <machine-info></machine-info>
+    <!-- <machine-info></machine-info>
+    <app-side-panel *ngIf="wishbone.debugging">
+        <top-panel>top</top-panel>
+        <bottom-panel>bottoms</bottom-panel>
+    </app-side-panel> -->
 </div>
