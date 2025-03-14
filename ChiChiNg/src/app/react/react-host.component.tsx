@@ -9,15 +9,16 @@ import React from 'react';
   template: '<div #reactContainer></div>',
 })
 export class ReactWrapperComponent {
+  root: ReactDOM.Root;
   constructor(private elementRef: ElementRef) {}
 
   ngAfterViewInit() {
-    const root = ReactDOM.createRoot(this.elementRef.nativeElement);
+    this.root = ReactDOM.createRoot(this.elementRef.nativeElement);
     let p = [];
     for (let i =0; i<256; ++i) {
       p.push(i.toString(16))
     }
-    root.render(
+    this.root.render(
       <Profile page={p} />
     );
   }

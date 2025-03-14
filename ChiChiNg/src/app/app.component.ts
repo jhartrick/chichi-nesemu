@@ -52,6 +52,7 @@ export class AppComponent implements AfterViewInit {
 
   paused = false;
   muted = false;
+  debugging = false;
   //audioFactory: WishboneAudioFactory;
 
   constructor(
@@ -101,7 +102,9 @@ export class AppComponent implements AfterViewInit {
   }
 
   toggleDebug() {
-    this.wishbone.debugging=!this.wishbone.debugging;
+    this.debugging=!this.debugging;
+    this.wishbone.enableDebug(this.debugging);
+    
     this.cd.detectChanges();
 
   }
@@ -137,11 +140,11 @@ export class AppComponent implements AfterViewInit {
     const setupRuntime = createWishboneRuntime(this.wishbone);
 
     const wbio = this.setupIO(this.wishbone);
-
-    this.wishbone = this.wishbone;
+    
     this.audio = wbio.audio;
     this.zone.runOutsideAngular(() => {
       this.runtime = setupRuntime(wbio);
+      this.wishbone.runtime = this.runtime;
     });
     this.cheats = await WishboneCheats.fetchCheats(value.ROMHashFunction);
     this.hasCheats = this.cheats.length > 1;

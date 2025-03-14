@@ -10,7 +10,6 @@ interface runLoop  {
     frameTime: number;
 }
 
-
 import { Wishbone, WishboneIO } from "./wishbone";
 
 const runFrame = (wishbone: Wishbone) => (io: WishboneIO)  => () => {

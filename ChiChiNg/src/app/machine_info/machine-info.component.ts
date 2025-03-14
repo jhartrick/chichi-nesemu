@@ -20,24 +20,19 @@ export class MachineInfoComponent {
         public cd: ChangeDetectorRef,
         @Inject(WISHBONE_INST) public wb: Wishbone
     ) {
-      this.cd.detach();
-    }
+      this.CPUStatus = {  clock:0, currentInstruction: '', ...this.wb.chichi.Cpu.GetStatus() };
 
-  update = () => {
-    const { InstructionHistory, InstructionHistoryPointer } = this.wb.chichi.Cpu;
-    this.CPUStatus = {  clock:0, currentInstruction: DebugHelpers.disassemble(InstructionHistory[InstructionHistoryPointer]), ...this.wb.chichi.Cpu.GetStatus() };
+      wb.instructionHistory.subscribe(x => {
+        this.CPUStatus = Object.assign(this.CPUStatus, { currentInstruction: DebugHelpers.disassemble(x) });
+      })
   }
 
   step = () => {
     this.wb.step();
-    this.update();
-    this.cd.detectChanges();
   }
   
   stepFrame = () =>{
     this.wb.runframe(); 
-    this.update();
-    this.cd.detectChanges();
   }
 
 }
