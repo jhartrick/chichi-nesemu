@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host=0.0.0.0 --disable-host-check",
-    "build": "ng build",
+    "build": "ng build --configuration production --base-href /chichi-nesemu/ && mv ../docs/browser/* ../docs/ && rmdir ../docs/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
